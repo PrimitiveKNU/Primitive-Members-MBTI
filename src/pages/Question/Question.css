@@ -1,0 +1,122 @@
+.question-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 20px 96px;
+  color: #ffffff;
+}
+
+.question-shell {
+  width: min(860px, 92vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.question-title {
+  font-family: var(--font-poster);
+  font-size: clamp(36px, 7vw, 64px);
+  margin: 0;
+}
+
+.question-desc {
+  font-family: var(--font-pretendard);
+  font-size: clamp(14px, 3vw, 18px);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.question-progress {
+  width: min(620px, 90vw);
+  height: 10px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 30, 80, 0.2);
+}
+
+.question-progress__bar {
+  display: block;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 999px;
+  transition: width 240ms ease;
+}
+
+.question-count {
+  margin: 0;
+  font-family: var(--font-pretendard);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.question-card {
+  width: min(760px, 92vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: var(--font-pretendard);
+  font-size: clamp(18px, 4vw, 28px);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.question-quote {
+  font-family: var(--font-poster);
+  font-size: clamp(24px, 6vw, 40px);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.question-text {
+  margin: 0;
+}
+
+.answer-list {
+  width: min(640px, 92vw);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.answer-button {
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  padding: 16px 20px;
+  font-family: var(--font-pretendard);
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #4a4a4a;
+  box-shadow: 0 14px 24px rgba(0, 30, 80, 0.15);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.answer-button:hover {
+  transform: translateY(-1px);
+  background: #e9f2ff;
+  box-shadow: 0 18px 28px rgba(0, 30, 80, 0.2);
+}
+
+.answer-button:active {
+  transform: translateY(0);
+  box-shadow: 0 12px 22px rgba(0, 30, 80, 0.18);
+}
+
+@media (max-width: 640px) {
+  .question-card {
+    gap: 8px;
+  }
+
+  .answer-button {
+    font-size: 14px;
+    padding: 14px 18px;
+  }
+}

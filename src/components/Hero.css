@@ -1,0 +1,207 @@
+@import url('../styles/fonts.css');
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 80px 24px 120px;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  color: #ffffff;
+  max-width: 900px;
+}
+
+.hero__eyebrow {
+  font-family: 'Cafe24ProSlim', sans-serif;
+  font-weight: bold;
+  font-size: clamp(30px, 3.6vw, 60px);
+  margin: 0 0 5px;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+.hero__title {
+  font-family: 'Cafe24ProSlim', sans-serif;
+  font-weight: bold;
+  font-size: clamp(78px, 12.8vw, 146px);
+  margin: 0 0 8px;
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.hero__subtitle {
+  font-family: 'SchoolSafetyPoster', sans-serif;
+  font-size: clamp(30px, 5.8vw, 50px);
+  margin: 0 0 24px;
+  letter-spacing: 0.01em;
+  text-align: right;
+}
+
+.hero__desc {
+  font-family: 'Pretendard', sans-serif;
+  font-size: clamp(10px, 2.1vw, 30px);
+  margin: 0 0 32px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero__actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pretendard', sans-serif;
+  
+  font-size: clamp(32px, 5.5vw, 52px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  
+  padding: 20px 1; 
+  
+  width: 840px;
+  max-width: 1000px;
+  min-width: 280px;
+
+  border-radius: 999px;
+  border: 0;
+  background: #ffffff;
+  color: #5a5a5a;
+  box-shadow: 0 16px 30px rgba(0, 30, 80, 0.18);
+  cursor: pointer;
+  text-decoration: none;
+  
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+@media (max-width: 640px) {
+  .cta {
+    padding: 15px 0;
+    font-size: 28px;
+  }
+}
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 36px rgba(0, 30, 80, 0.22);
+}
+
+.hero__links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  font-family: var(--font-pretendard);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+}
+
+.hero__links a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.orb,
+.ring {
+  position: absolute;
+  border-radius: 999px;
+  opacity: 0.6;
+  filter: blur(0.2px);
+  animation: float 10s ease-in-out infinite;
+}
+
+.orb--left {
+  width: 340px;
+  height: 340px;
+  left: -90px;
+  top: 60px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+  animation-duration: 12s;
+}
+
+.orb--right {
+  width: 280px;
+  height: 280px;
+  right: -80px;
+  top: 120px;
+  background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+  animation-duration: 11s;
+}
+
+.orb--mid {
+  width: 220px;
+  height: 220px;
+  right: 10vw;
+  bottom: 90px;
+  background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+  animation-duration: 9s;
+}
+
+.ring {
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  background: transparent;
+}
+
+.ring--left {
+  width: 260px;
+  height: 260px;
+  left: 60px;
+  top: 40px;
+  animation-duration: 14s;
+}
+
+.ring--right {
+  width: 200px;
+  height: 200px;
+  right: 180px;
+  bottom: 40px;
+  animation-duration: 13s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__links {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .divider {
+    display: none;
+  }
+}
