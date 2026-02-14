@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import answerData from "../../assets/answer.json";
 import descriptionData from "../../assets/description.json";
 import questionData from "../../assets/question.json";
