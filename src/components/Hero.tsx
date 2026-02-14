@@ -6,7 +6,6 @@ const Hero: React.FC = () => {
   return (
     <main className="hero">
       <div className="hero__bg">
-        {/* 애니메이션 요소들 */}
         <span className="orb orb--left" />
         <span className="orb orb--right" />
         <span className="ring ring--left" />
@@ -24,7 +23,7 @@ const Hero: React.FC = () => {
         <div className="hero__actions">
           <Link className="cta" to="/question">START</Link>
           <div className="hero__links">
-            <Link to="https://primitive.kr/" target="_blank">PRIMITIVE는 무슨 동아리일까?</Link>
+            <Link to="https://primitive.kr" target="_blank">PRIMITIVE는 무슨 동아리일까?</Link>
             <span className="divider">|</span>
             <Link to="https://forms.gle/8aDB9L7XTZRxrhDv6" target="_blank">PRIMITIVE 입부 신청하기</Link>
           </div>

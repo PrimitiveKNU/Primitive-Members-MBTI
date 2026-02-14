@@ -7,12 +7,6 @@ type AnswerChoice = {
   answer: string
 }
 
-type QuestionItem = {
-  id: number
-  q: string
-  a: AnswerChoice[]
-}
-
 type RawQuestion = {
   id: number
   question: string
@@ -109,18 +103,11 @@ function Question() {
         <div className="question-progress" aria-hidden="true">
           <span className="question-progress__bar" style={{ width: `${progressValue}%` }} />
         </div>
-        <p className="question-count">
-          {currentIndex + 1} / {totalQuestions}
-        </p>
 
         <div className="question-card">
-          <span className="question-quote" aria-hidden="true">
-            "
-          </span>
+          <span className="question-quote" aria-hidden="true">"</span>
           <p className="question-text">{currentQuestion.q}</p>
-          <span className="question-quote" aria-hidden="true">
-            "
-          </span>
+          <span className="question-quote" aria-hidden="true">"</span>
         </div>
 
         <div className="answer-list">

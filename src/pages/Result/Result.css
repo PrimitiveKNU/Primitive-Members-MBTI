@@ -1,64 +1,77 @@
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(to top, #0375ff, #fcfdff);
+}
+
 .result-page {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 64px 20px 96px;
+  padding: 70px 20px 96px;
   color: #ffffff;
 }
 
 .result-shell {
-  width: min(900px, 92vw);
+  width: min(960px, 92vw);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
+  gap: 18px;
   text-align: center;
 }
 
+/* ── 헤더 ── */
 .result-header {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  align-self: stretch;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
 }
 
 .result-eyebrow {
   margin: 0;
-  font-family: var(--font-pretendard);
-  font-size: 14px;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  font-family: "Pretendard", sans-serif;
+  font-size: clamp(20px, 2.6vw, 40px);
+  font-weight: 900;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .result-title {
-  font-family: var(--font-poster);
-  font-size: clamp(38px, 7vw, 72px);
+  font-family: "SchoolSafetyPoster", sans-serif;
+  font-size: clamp(30px, 5.6vw, 75px);
+  text-align: center;
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
-.result-desc {
-  font-family: var(--font-pretendard);
-  font-size: clamp(16px, 3.4vw, 20px);
-  margin: 0;
-  color: rgba(255, 255, 255, 0.8);
-}
-
+/* ── 프로필 영역: 이미지(중앙) + 설명(오른쪽) ── */
 .result-profile {
   width: 100%;
-  display: grid;
-  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
-  gap: 32px;
-  align-items: start;
-  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 36px;
+  margin: 12px auto 0;
 }
 
+/* 이미지: 오렌지 테두리 + 적당한 크기 */
 .result-image {
-  width: 100%;
+  flex: 0 0 auto;
+  width: clamp(220px, 32vw, 360px);
   aspect-ratio: 1 / 1;
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 30, 80, 0.2);
+  border-radius: 16px;
+  border: 4px solid #ff6b2b;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 14px 30px rgba(0, 30, 80, 0.22);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -74,28 +87,142 @@
 .result-image__placeholder {
   width: 100%;
   height: 100%;
+  background: rgba(255, 255, 255, 0.16);
 }
 
+/* 텍스트 설명: 왼쪽 정렬, 이미지 옆에 배치 */
 .result-summary {
+  flex: 0 0 auto;
+  width: clamp(200px, 30vw, 340px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
+  align-items: flex-start;
+  text-align: left;
+  padding-top: 8px;
 }
 
 .result-quote {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-family: var(--font-pretendard);
-  font-size: clamp(18px, 3.6vw, 24px);
-  font-weight: 600;
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.4;
+}
+
+.result-desc {
+  font-family: var(--font-pretendard);
+  font-size: clamp(14px, 1.1vw, 14px);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.65;
+}
+
+/* ── 푸터 영역: 중앙 정렬 ── */
+.result-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.result-footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  width: 100%;
 }
 
 .result-similar {
   margin: 8px 0 0;
   font-family: var(--font-pretendard);
-  font-size: 18px;
+  font-size: clamp(15px, 2vw, 20px);
   font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
 }
 
+.result-cta-title {
+  margin: 4px 0 0;
+  font-family: "SchoolSafetyPoster", sans-serif;
+  font-size: clamp(18px, 1.2vw, 30px);
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+/* ── 버튼 ── */
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(480px, 88vw);
+  align-items: stretch;
+  margin-top: 6px;
+}
+
+.result-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  padding: 14px 0;
+  font-family: var(--font-pretendard);
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 600;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(0, 30, 80, 0.16);
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.result-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 26px rgba(0, 30, 80, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.result-link {
+  font-family: var(--font-pretendard);
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 600;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  padding: 14px 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: transparent;
+  box-shadow: 0 10px 18px rgba(0, 30, 80, 0.14);
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.result-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 26px rgba(0, 30, 80, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ── 레거시 카드 (사용 시) ── */
 .result-list {
   width: 100%;
   display: grid;
@@ -125,50 +252,25 @@
   color: #1a5fd1;
 }
 
-.result-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: min(320px, 90vw);
-}
-
-.result-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  border-radius: 999px;
-  padding: 14px 0;
-  font-family: var(--font-pretendard);
-  font-size: 16px;
-  background: #ffffff;
-  color: #3c3c3c;
-  cursor: pointer;
-  box-shadow: 0 12px 22px rgba(0, 30, 80, 0.15);
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.result-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 26px rgba(0, 30, 80, 0.2);
-}
-
-.result-link {
-  font-family: var(--font-pretendard);
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
+/* ── 모바일 반응형 ── */
 @media (max-width: 640px) {
   .result-profile {
-    grid-template-columns: 1fr;
-    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .result-image {
+    width: min(300px, 80vw);
   }
 
   .result-summary {
-    align-items: center;
+    width: min(320px, 88vw);
+    align-items: flex-start;
+  }
+
+  .result-actions {
+    width: min(320px, 88vw);
   }
 
   .result-card {
@@ -181,5 +283,30 @@
 
   .result-card__answer {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .result-page {
+    padding: 40px 10px 70px;
+  }
+
+  .result-shell {
+    width: 100%;
+  }
+
+  .result-title {
+    font-size: clamp(24px, 5vw, 40px);
+  }
+
+  .result-profile {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .result-cta,
+  .result-link {
+    width: 90%;
+    font-size: 16px;
   }
 }

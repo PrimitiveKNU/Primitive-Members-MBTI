@@ -1,3 +1,18 @@
 .home {
   min-height: 100vh;
 }
+
+@media (max-width: 768px) {
+  .home {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .home-title {
+    font-size: clamp(28px, 6vw, 48px);
+  }
+
+  .home-desc {
+    font-size: clamp(14px, 3vw, 18px);
+  }
+}
