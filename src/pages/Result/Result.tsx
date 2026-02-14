@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import answerData from "../../assets/answer.json";
 import descriptionData from "../../assets/description.json";
@@ -34,7 +35,7 @@ type MemberDescription = {
 type MemberImage = {
   studentNumber: string;
   name: string;
-  src: string;
+  path: string;
 };
 
 const STORAGE_KEY = "primitiveMbtiSelections";
@@ -61,16 +62,12 @@ const readStoredSelections = (): number[] => {
   }
 };
 
-const memberImages = import.meta.glob(
+const memberImageModules = import.meta.glob(
   "../../assets/members/*.{png,jpg,jpeg,webp}",
-  {
-    eager: true,
-    import: "default",
-  },
-) as Record<string, string>;
+);
 
-const parsedImages: MemberImage[] = Object.entries(memberImages)
-  .map(([path, src]) => {
+const parsedImages: MemberImage[] = Object.keys(memberImageModules)
+  .map((path) => {
     const fileName = path.split("/").pop() ?? "";
     const baseName = fileName.replace(/\.(png|jpe?g|webp)$/i, "");
     const [studentNumber, name] = baseName.split("_");
@@ -79,7 +76,7 @@ const parsedImages: MemberImage[] = Object.entries(memberImages)
       return null;
     }
 
-    return { studentNumber, name, src };
+    return { studentNumber, name, path };
   })
   .filter(Boolean) as MemberImage[];
 
@@ -115,20 +112,20 @@ const resolveDescription = (
   return null;
 };
 
-const resolveImage = (member: MemberAnswer) => {
+const resolveImagePath = (member: MemberAnswer) => {
   const nameKey = normalizeName(member.name);
 
   const matchByName = parsedImages.find((image) =>
     normalizeName(image.name).includes(nameKey),
   );
   if (matchByName) {
-    return matchByName.src;
+    return matchByName.path;
   }
 
   const matchByNumber = parsedImages.find(
     (image) => image.studentNumber === member["student number"],
   );
-  return matchByNumber?.src ?? "";
+  return matchByNumber?.path ?? "";
 };
 
 function Result() {
@@ -162,12 +159,47 @@ function Result() {
   const matchedDescription = bestMatch
     ? resolveDescription(bestMatch.member.name, descriptions)
     : null;
-  const matchedImage = bestMatch ? resolveImage(bestMatch.member) : "";
+  const matchedImagePath = bestMatch
+    ? resolveImagePath(bestMatch.member)
+    : "";
   const descriptionLines = matchedDescription?.desc
     ? matchedDescription.desc
         .split("\n")
         .filter((line) => line.trim().length > 0)
     : [];
+  const [matchedImage, setMatchedImage] = useState("");
+
+  useEffect(() => {
+    if (!matchedImagePath) {
+      setMatchedImage("");
+      return;
+    }
+
+    let cancelled = false;
+    const loader = memberImageModules[
+      matchedImagePath
+    ] as () => Promise<{ default: string }>;
+
+    if (loader) {
+      loader()
+        .then((mod) => {
+          if (!cancelled) {
+            setMatchedImage(mod.default);
+          }
+        })
+        .catch(() => {
+          if (!cancelled) {
+            setMatchedImage("");
+          }
+        });
+    } else {
+      setMatchedImage("");
+    }
+
+    return () => {
+      cancelled = true;
+    };
+  }, [matchedImagePath]);
 
   if (!bestMatch || normalizedSelections.length === 0) {
     return (
@@ -194,7 +226,13 @@ function Result() {
         <div className="result-profile">
           <div className="result-image" aria-hidden={!matchedImage}>
             {matchedImage ? (
-              <img src={matchedImage} alt={`${bestMatch.member.name} 프로필`} />
+              <img
+                src={matchedImage}
+                alt={`${bestMatch.member.name} 프로필`}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
             ) : (
               <div className="result-image__placeholder" />
             )}
