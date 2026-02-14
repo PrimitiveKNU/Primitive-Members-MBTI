@@ -175,9 +175,7 @@ function Result() {
         <div className="result-shell">
           <h1 className="result-title">RESULT</h1>
           <p className="result-desc">아직 선택한 답변이 없습니다.</p>
-          <Link className="result-cta" to="/question">
-            질문 시작하기
-          </Link>
+          <Link className="result-cta" to="/question">질문 시작하기</Link>
         </div>
       </section>
     );
