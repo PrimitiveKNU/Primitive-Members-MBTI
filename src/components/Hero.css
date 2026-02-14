@@ -254,7 +254,6 @@
     gap: 12px;
   }
 
-  /* START 버튼 모바일 */
   .cta {
     font-size: clamp(18px, 5vw, 28px);
     padding: 14px 0;
@@ -265,7 +264,6 @@
     max-width: none;
   }
 
-  /* 링크들을 버튼 형태로 세로 나열 */
   .hero__links {
     flex-direction: column;
     gap: 12px;
