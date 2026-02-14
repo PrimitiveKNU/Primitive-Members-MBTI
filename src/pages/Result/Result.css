@@ -59,7 +59,7 @@
   flex: 0 0 auto;
   width: clamp(220px, 32vw, 360px);
   aspect-ratio: 1 / 1;
-  border-radius: 20px;
+  /* border-radius: 45px; */
   background: rgba(255, 255, 255, 0.16);
   box-shadow: 0 14px 30px rgba(0, 30, 80, 0.22);
   overflow: hidden;
