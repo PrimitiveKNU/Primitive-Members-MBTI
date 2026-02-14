@@ -132,7 +132,6 @@ const resolveImage = (member: MemberAnswer) => {
 };
 
 function Result() {
-  const navigate = useNavigate();
   const raw = (questionData.questions ?? []) as RawQuestion[];
   const questions: QuestionItem[] = raw.map((item) => ({
     id: item.id,
@@ -187,7 +186,6 @@ function Result() {
   return (
     <section className="result-page">
       <div className="result-shell">
-        {/* 헤더 */}
         <div className="result-header">
           <p className="result-eyebrow">당신의 결과는?!</p>
           <h1 className="result-title">
@@ -195,7 +193,6 @@ function Result() {
           </h1>
         </div>
 
-        {/* 프로필: 이미지 + 설명 나란히 */}
         <div className="result-profile">
           <div className="result-image" aria-hidden={!matchedImage}>
             {matchedImage ? (
@@ -216,7 +213,6 @@ function Result() {
           </div>
         </div>
 
-        {/* 푸터: 텍스트 + 버튼 중앙 정렬 */}
         <div className="result-footer">
           <div className="result-footer__content">
             <p className="result-similar">
