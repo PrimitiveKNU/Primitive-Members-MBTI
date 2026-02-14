@@ -299,6 +299,7 @@ body {
   .result-cta,
   .result-link {
     width: 90%;
+    margin: 0 auto;
     font-size: 16px;
   }
 }

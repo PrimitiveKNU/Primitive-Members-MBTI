@@ -229,7 +229,7 @@
   }
 
   .hero__title {
-    font-size: clamp(55px, 20vw, 80px);
+    font-size: clamp(48px, 16vw, 72px);
     text-align: left;
     margin-bottom: 0;
     line-height: 1;
