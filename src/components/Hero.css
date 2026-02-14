@@ -70,7 +70,6 @@
   align-items: center;
 }
 
-/* START 버튼 */
 .cta {
   display: inline-flex;
   align-items: center;
@@ -105,7 +104,6 @@
   box-shadow: 0 20px 36px rgba(0, 30, 80, 0.22);
 }
 
-/* 링크 영역 (데스크탑: 가로 나열) */
 .hero__links {
   display: flex;
   align-items: center;
@@ -128,7 +126,6 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* 장식 요소 */
 .orb,
 .ring {
   position: absolute;
@@ -208,7 +205,6 @@
   }
 }
 
-/* ── 모바일 반응형 ── */
 @media (max-width: 768px) {
   .hero {
     padding: 60px 24px 80px;
@@ -233,7 +229,7 @@
   }
 
   .hero__title {
-    font-size: clamp(64px, 20vw, 100px);
+    font-size: clamp(60px, 20vw, 90px);
     text-align: left;
     margin-bottom: 0;
     line-height: 1;
