@@ -262,6 +262,7 @@ body {
 
   .result-actions {
     width: min(320px, 88vw);
+    align-items: center;
   }
 
   .result-card {
